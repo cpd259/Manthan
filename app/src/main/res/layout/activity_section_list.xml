@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_no_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:text="No Section Available"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_section_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/vertical_extra_space_between_views"
+        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginTop="@dimen/vertical_extra_space_between_views"
+        android:scrollbars="vertical" />
+
+
+    <include layout="@layout/layout_include_loader_view" />
+
+
+
+</RelativeLayout>

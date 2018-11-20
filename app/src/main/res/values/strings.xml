@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">मंथन</string>
+    <string name="please_wait">Please wait</string>
+    <string name="action_settings">Setting</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_network_error_message">No Network Connection</string>
+</resources>
