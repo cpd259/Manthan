@@ -2,6 +2,7 @@ package com.example.chaitanyadeshpande.sor.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -61,6 +62,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+
+        SharedPreferences prefs = getSharedPreferences("UserNamePref", MODE_PRIVATE);
+        String userName = prefs.getString("UserName", "");
+        etUsername.setText(userName);
+        etPassword.setFocusable(true);
     }
 
     @OnClick(R.id.btn_login)
@@ -108,6 +115,11 @@ public class LoginActivity extends AppCompatActivity {
                                 if(loginResponse.getData()!=null) {
 
                                     UserInfoUtility.getInstance().setSelectedUserDetails(loginResponse.getData());
+
+                                    SharedPreferences.Editor editor = getSharedPreferences("UserNamePref", MODE_PRIVATE).edit();
+                                    editor.putString("UserName",loginResponse.getData().getUsername());
+                                    editor.apply();
+
                                     ReadingLevelListActivity.launch(LoginActivity.this);
 
 

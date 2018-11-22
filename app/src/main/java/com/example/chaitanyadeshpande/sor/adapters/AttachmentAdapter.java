@@ -54,6 +54,15 @@ public class AttachmentAdapter extends RecyclerView.Adapter<AttachmentAdapter.My
     public void onBindViewHolder(final AttachmentAdapter.MyViewHolder holder, int position) {
         final Attachment attachment = this.attachmentList.get(position);
         holder.readingLevelName.setText(attachment.getTitle());
+
+        if(attachment.getAttachment().endsWith(".pdf")){
+            holder.type.setText("PDF Attachment");
+
+        }else if(attachment.getAttachment().endsWith(".mp3")){
+            holder.type.setText("Audio Attachment");
+        }
+
+
 //        holder.type.setText(attachment.getDescription());
         holder.btnOpen.setOnClickListener(new View.OnClickListener() {
             @Override

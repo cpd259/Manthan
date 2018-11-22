@@ -67,7 +67,8 @@
             android:name=".activities.ExitActivity"
             android:autoRemoveFromRecents="true"
             android:theme="@android:style/Theme.NoDisplay" />
-        <activity android:name=".activities.CommonAttachmentListActivity"></activity>
+        <activity android:name=".activities.CommonAttachmentListActivity" />
+
     </application>
 
 </manifest>

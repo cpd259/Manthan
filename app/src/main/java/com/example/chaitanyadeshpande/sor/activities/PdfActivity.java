@@ -14,6 +14,10 @@ import com.example.chaitanyadeshpande.sor.network.UrlConstant;
 import com.example.chaitanyadeshpande.sor.utilities.Logger;
 import com.example.chaitanyadeshpande.sor.utilities.MainUtility;
 import com.example.chaitanyadeshpande.sor.utilities.SelectedAttachmentUtility;
+import com.example.jean.jcplayer.model.JcAudio;
+import com.example.jean.jcplayer.view.JcPlayerView;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +34,8 @@ public class PdfActivity extends BaseDrawerActivity implements DownloadFile.List
     TextView tvLoadingMessage;
     @BindView(R.id.ll_progress_main)
     LinearLayout llProgressMain;
+    @BindView(R.id.jcplayer)
+    JcPlayerView jcplayer;
     private String LOG_TAG = "PdfActivity";
 
     PDFPagerAdapter pdfPagerAdapter;
@@ -47,27 +53,49 @@ public class PdfActivity extends BaseDrawerActivity implements DownloadFile.List
         ButterKnife.bind(this);
 
         showLoadingView("Loading Attachment");
-
-
-        String url = UrlConstant.getBaseUrl() + "uploads/" + SelectedAttachmentUtility.getInstance().getSelectedAttachment().getAttachment();
-        String urlCommon = UrlConstant.getBaseUrl() + "uploads/global/" + SelectedAttachmentUtility.getInstance().getSelectedAttachment().getAttachment();
-
         toolbarHeaderTv.setText(SelectedAttachmentUtility.getInstance().getSelectedAttachment().getTitle());
+
+
+        if(SelectedAttachmentUtility.getInstance().getSelectedAttachment().getAttachment().endsWith(".pdf")) {
+
+            jcplayer.setVisibility(View.GONE);
+
+
+            String url = UrlConstant.getBaseUrl() + "uploads/" + SelectedAttachmentUtility.getInstance().getSelectedAttachment().getAttachment();
+            String urlCommon = UrlConstant.getBaseUrl() + "uploads/global/" + SelectedAttachmentUtility.getInstance().getSelectedAttachment().getAttachment();
+
 //        toolbarHeaderTv.setText(R.string.app_name);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
-        if(SelectedAttachmentUtility.getInstance().getSelectedAttachment().getCommon()){
-            remotePDFViewPager =
-                    new RemotePDFViewPager(this, urlCommon, this);
+            if (SelectedAttachmentUtility.getInstance().getSelectedAttachment().getCommon()) {
+                remotePDFViewPager =
+                        new RemotePDFViewPager(this, urlCommon, this);
 
-            Logger.logError("PdfActivity","Url :- "+urlCommon);
+                Logger.logError("PdfActivity", "Url :- " + urlCommon);
+
+            } else {
+                remotePDFViewPager =
+                        new RemotePDFViewPager(this, url, this);
+                Logger.logError("PdfActivity", "Url :- " + url);
+
+            }
+
+
+        }else if(SelectedAttachmentUtility.getInstance().getSelectedAttachment().getAttachment().endsWith(".mp3")){
+
+            jcplayer.setVisibility(View.VISIBLE);
+
+            hideLoadingView();
+
+            ArrayList<JcAudio> jcAudios = new ArrayList<>();
+            jcAudios.add(JcAudio.createFromURL("",UrlConstant.getBaseUrl() + "uploads/" + SelectedAttachmentUtility.getInstance().getSelectedAttachment().getAttachment() ));
+
+            jcplayer.initPlaylist(jcAudios, null);
 
         }else {
-            remotePDFViewPager =
-                    new RemotePDFViewPager(this, url, this);
-            Logger.logError("PdfActivity","Url :- "+url);
-
+            MainUtility.showToast(this,"Invalid Attachment");
+            AttachmentListActivity.launch(this);
         }
 
 
@@ -107,6 +135,10 @@ public class PdfActivity extends BaseDrawerActivity implements DownloadFile.List
 
         if (pdfPagerAdapter != null) {
             pdfPagerAdapter.close();
+        }
+
+        if(jcplayer!=null) {
+            jcplayer.kill();
         }
     }
 

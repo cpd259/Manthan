@@ -31,8 +31,8 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.7.3'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
     implementation 'com.mcxiaoke.volley:library:1.0.19'
-    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'es.voghdev.pdfviewpager:library:1.0.5'
+    implementation 'com.github.jeancsanchez:JcPlayer:2.6.13'
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'//text to drawable
 
     testImplementation 'junit:junit:4.12'

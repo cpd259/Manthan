@@ -47,7 +47,6 @@
                         android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
                         android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
                         android:layout_weight="1"
-                        android:text="तासाचे नियोजि - सत्र ४ - निळा गट"
                         android:textColor="@color/colorPrimary"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -69,7 +68,6 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
                         android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
-                        android:text="दोन अक्षरी जोडाक्षरांची उजळणी"
                         android:textSize="14sp"
                         android:textStyle="normal" />
 
