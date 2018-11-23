@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
 "id",
 "section_title",
-"type",
+"description",
 "reading_level_id",
 "is_active"
 })
@@ -23,7 +23,7 @@ public class Section {
 private Integer id;
 @JsonProperty("section_title")
 private String sectionTitle;
-@JsonProperty("type")
+@JsonProperty("description")
 private String description;
 @JsonProperty("reading_level_id")
 private Integer readingLevelId;
@@ -52,12 +52,12 @@ public void setSectionTitle(String sectionTitle) {
 this.sectionTitle = sectionTitle;
 }
 
-@JsonProperty("type")
+@JsonProperty("description")
 public String getDescription() {
 return description;
 }
 
-@JsonProperty("type")
+@JsonProperty("description")
 public void setDescription(String description) {
 this.description = description;
 }

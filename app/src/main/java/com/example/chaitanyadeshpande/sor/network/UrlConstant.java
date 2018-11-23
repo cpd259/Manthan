@@ -3,7 +3,7 @@ package com.example.chaitanyadeshpande.sor.network;
 
 public class UrlConstant {
 
-    private static String baseUrl = "http://avi-infotech.com/yii/learning/web/";
+    private static String baseUrl = "http://manthaneducation.in/";
 
     private static final String LOG_TAG = "UrlConstant";
 

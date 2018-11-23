@@ -72,7 +72,9 @@ public class ProfileActivity extends BaseDrawerActivity {
                 .bold()
                 .toUpperCase()
                 .endConfig()
-                .buildRound("C", Color.WHITE);
+                .buildRound(UserInfoUtility.getInstance().getSelectedUserDetails().getFirstName().substring(0,1), Color.WHITE);
+
+        tvUser.setText(UserInfoUtility.getInstance().getSelectedUserDetails().getFirstName()+" "+UserInfoUtility.getInstance().getSelectedUserDetails().getLastName());
 
         toolbarHeaderTv.setText("");
 

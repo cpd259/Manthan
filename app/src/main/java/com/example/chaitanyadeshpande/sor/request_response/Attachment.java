@@ -13,8 +13,6 @@ import java.util.HashMap;
 @JsonPropertyOrder({
         "id",
         "title",
-//        "type",
-//        "type",
         "attachment",
         "section_id",
         "is_active"
@@ -25,10 +23,6 @@ public class Attachment {
     private Integer id;
     @JsonProperty("title")
     private String title;
-//    @JsonProperty("type")
-//    private String type;
-//    @JsonProperty("type")
-//    private String type;
     @JsonProperty("attachment")
     private String attachment;
     @JsonProperty("section_id")
@@ -66,25 +60,7 @@ public class Attachment {
     public void setCommon(Boolean common) {
         isCommon = common;
     }
-    //    @JsonProperty("type")
-//    public String getDescription() {
-//        return type;
-//    }
-//
-//    @JsonProperty("type")
-//    public void setDescription(String type) {
-//        this.type = type;
-//    }
-//
-//    @JsonProperty("type")
-//    public String getType() {
-//        return type;
-//    }
-//
-//    @JsonProperty("type")
-//    public void setType(String type) {
-//        this.type = type;
-//    }
+
 
     @JsonProperty("attachment")
     public String getAttachment() {

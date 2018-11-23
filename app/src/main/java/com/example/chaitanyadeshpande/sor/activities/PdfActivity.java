@@ -90,7 +90,6 @@ public class PdfActivity extends BaseDrawerActivity implements DownloadFile.List
 
             ArrayList<JcAudio> jcAudios = new ArrayList<>();
             jcAudios.add(JcAudio.createFromURL("",UrlConstant.getBaseUrl() + "uploads/" + SelectedAttachmentUtility.getInstance().getSelectedAttachment().getAttachment() ));
-
             jcplayer.initPlaylist(jcAudios, null);
 
         }else {

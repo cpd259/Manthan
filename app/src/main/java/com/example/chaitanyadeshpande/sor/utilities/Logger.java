@@ -12,7 +12,7 @@ public class Logger {
     public static void logError(String tag, String message) {
 
 //        if (BuildConfig.isToShowLog) {
-            Log.e(tag, message+"\n\n");
+//            Log.e(tag, message+"\n\n");
 //        }
     }
 
